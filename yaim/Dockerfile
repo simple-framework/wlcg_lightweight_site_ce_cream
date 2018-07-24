@@ -12,7 +12,7 @@ RUN yum install -y \
     openssh-clients
 
 ########################
-#        UMD 3
+#        UMD 4
 ########################
 
 # install yum-priorities
@@ -22,7 +22,7 @@ RUN yum install -y \
 # Install (for now) the SL6 repo details for UMD-3, because currently it has
 # most of the necessary components:
 RUN yum install -y \
-	http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.14.4-1.el6.noarch.rpm
+	http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.3-1.el6.noarch.rpm
 
 #########################
 #    Torque + Maui
@@ -47,7 +47,8 @@ RUN echo -e 'protect=1\npriority=1' >> /etc/yum.repos.d/EGI-third-party.repo
 #     Configuration
 #########################
 
-RUN yum -y install lcg-CA \
+RUN yum -y install  \
+	ca-policy-egi-core \
 	emi-cream-ce \
 	emi-torque-server \
 	emi-torque-utils
