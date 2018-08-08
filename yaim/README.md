@@ -35,7 +35,7 @@ sudo docker run hello-world
 ~~~
 ## permissions for init.sh
 init.sh needs to be an executable:
-` chmod "+x" {path_to_cern_lightweight_site_repo}/CE/ce-config/init.sh`
+` chmod "+x" {path_to_cern_lightweight_site_repo}/ce-config/init.sh`
 # Configuration files/Additional Files and Folders
 After you have cloned this repository locally, you need to create a host-certificates directory under the ce-config folder:
  - cern-lightweight-site/CE/host-certificates
@@ -90,7 +90,7 @@ You can either download the docker image directly from [Docker Hub](https://hub.
  
 ```
 # please ensure that you specify the correct value for the placeholder {path_to_cern_lightweight_site_repo}
-sudo docker run -d -it --name=ce --mount type=bind,source={path_to_cern_lightweight_site_repo}/CE/ce-config,target=/ce-config --net=host lwce /bin/bash
+sudo docker run -d -it --name=ce --mount type=bind,source={path_to_cern_lightweight_site_repo}/ce-config,target=/ce-config --net=host lwce /bin/bash
 
 ```
 
