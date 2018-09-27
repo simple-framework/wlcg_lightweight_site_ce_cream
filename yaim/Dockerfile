@@ -9,7 +9,8 @@ MAINTAINER Mayank Sharma (mayank.sharma@cern.ch)
 RUN yum install -y \
 	sudo \
 	wget \
-    openssh-clients
+    openssh-clients \
+	openssh-server
 
 ########################
 #        UMD 4
