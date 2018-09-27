@@ -25,6 +25,10 @@ case $i in
 	echo "Usage:"
 	echo "run_lwce.ch [--ip=<value>] [--host=<value>] [--net=<hostname:ip>] [[--node=<hostname:ip>] [--node=<hostname:ip>] ...]"
 	printf "\n"
+	echo "Options:"
+	echo "1. ip: REQUIRED; The IP address to be assigned to the container."
+	echo "2. net: REQUIRED; The name of the attachable overlay network to which the container should attach on startup. You should already have created an attachable overlay network on your swarm manager."
+	echo "3. node: OPTIONAL; HOSTNAME:IP of other nodes on the same docker swarm network. The /etc/hosts inside the current container is appended with this info."
 	exit 0
 	shift
 	;;
