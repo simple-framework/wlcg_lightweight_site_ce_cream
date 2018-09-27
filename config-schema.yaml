@@ -15,8 +15,8 @@ available-from-site-level-config:
     use_argus: { type: bool() , required: false, use_default: true}
     vos: { type: yaml_object(), required: true, use_default: false }
 expected-from-site-level-config:
-    mysql_password: { type: password(), required: true, use_default: true}
-    ce_host: { type: str(), required: true, use_default: false}
+    mysql_password: { type: password(), required: true, use_default: false}
+    ce_host: { type: str(), required: true, use_default: false} #value needs to be hostname of container
     globus_tcp_port_range: { type: range(), required: true, use_default: true}
     ce_batch_sys: { type: str(), required: true, use_default: true}
     ce_capability: { type: str(), required: true, use_default: true} #glue
@@ -38,7 +38,7 @@ expected-from-site-level-config:
     ce_sf00: { type: int(), required: true, use_default: false} #GlueHostBenchmarkSF00
     ce_si00: { type: int(), required: true, use_default: false} #
     ce_smpsize: { type: int(), required: false, use_default: false} #GlueHostArchitectureSMPSize
-    batch_server: { type: str(), required: true, use_default: true} #SET
+    batch_server: { type: fqdn(), required: true, use_default: true} #SET
     job_manager: { type: str(), required: true, use_default: true} #SET
     ce_batch_sys: { type: str(), required: true, use_default: true} #SET
     batch_log_dir: { type: path(), required: true, use_default: true}
@@ -47,8 +47,8 @@ expected-from-site-level-config:
     blparser_host: { type: fqdn(), required: true, use_default: false}
     cemon_host: { type: fqdn(), required: true, use_default: false}
     cream_db_user: { type: str(), required: true, use_default: true}
-    cream_db_password: { type: password(), required: true, use_default: true}
-    apel_mysql_host: { type: str(), required: true, use_default: true}
+    cream_db_password: { type: password(), required: true, use_default: false}
+    apel_mysql_host: { type: str(), required: true, use_default: false}
     apel_db_password: { type: password(), required: true, use_default: true}
     ce_close_se: { type: str(), required: false, use_default: false} #link?
     ce_close_se3_access_point: { type: path(), required: true, use_default: true} #link?
