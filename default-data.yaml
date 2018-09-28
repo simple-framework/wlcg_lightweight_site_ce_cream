@@ -1,45 +1,45 @@
-available-from-site-level-config:
-    - &globus_tcp_port_range: {
+expected-from-site-level-config:
+    - &globus_tcp_port_range {
         begin: 20000,
         end: 21000
     }
-    - &ce_capability: "CPUScalingReferenceSI00=1000"
-    - &ce_cpu_model: Xeon
-    - &ce_cpu_speed: 2800
-    - &ce_cpu_vendor: intel
-    - &ce_inboundip: false
-    - &ce_logcpu: 0
-    - &ce_minphysmem: 2000
-    - &ce_minvirtmem: 8192
-    - &ce_os: ScientificCERNSLC #SET
-    - &ce_os_arch: "x86_64"
-    - &ce_os_release: "6.8" #SET
-    - &ce_os_version: Carbon #SET
-    - &ce_otherdescr: "Cores=4"
-    - &ce_outboundip: true
-    - &ce_physcpu: 0
-    - &ce_runtimeenv: EMI-3 #SET
-    - &ce_sf00: 0
-    - &ce_si00: 381
-    - &ce_smpsize: 8
+    - &ce_capability "CPUScalingReferenceSI00=1000"
+    - &ce_cpu_model Xeon
+    - &ce_cpu_speed 2800
+    - &ce_cpu_vendor intel
+    - &ce_inboundip false
+    - &ce_logcpu 0
+    - &ce_minphysmem 2000
+    - &ce_minvirtmem 8192
+    - &ce_os ScientificCERNSLC #SET
+    - &ce_os_arch "x86_64"
+    - &ce_os_release "6.8" #SET
+    - &ce_os_version Carbon #SET
+    - &ce_otherdescr "Cores=4"
+    - &ce_outboundip true
+    - &ce_physcpu 0
+    - &ce_runtimeenv EMI-3 #SET
+    - &ce_sf00 0
+    - &ce_si00 381
+    - &ce_smpsize 8
     #batch_server: str() #value needs to be hostname of container
-    - &job_manager: pbs #SET
-    - &ce_batch_sys: torque #SET
-    - &batch_log_dir: "/var/spool/pbs" #SET
-    - &batch_version: 2.5.13-1cri.9nik #SET
-    - &blparser_with_updater_notifier: true
-    - &blparser_host: *ce_host  
-    - &cemon_host: *ce_host
-    - &cream_db_user: cream
+    - &job_manager pbs #SET
+    - &ce_batch_sys torque #SET
+    - &batch_log_dir "/var/spool/pbs" #SET
+    - &batch_version 2.5.13-1cri.9nik #SET
+    - &blparser_with_updater_notifier true
+    - &blparser_host *ce_host  
+    - &cemon_host *ce_host
+    - &cream_db_user cream
     #cream_db_password: str()
-    - &apel_mysql_host: *ce_host
+    - &apel_mysql_host *ce_host
     #apel_db_password: 
-    - &ce_close_se: SE3
-    - &ce_close_se3_access_point: "/not/used" #check
-    - &ce_close_se3_host: "not-used.some-domain" #check
-    - &se_list: *ce_close_se3_host
-    - &se_mount_info_list: "none"
-    - &vo_sw_dir: "/opt/exp_soft" #SET
-    - &queues: *vos
+    - &ce_close_se SE3
+    - &ce_close_se3_access_point "/not/used" #check
+    - &ce_close_se3_host "not-used.some-domain" #check
+    - &se_list *ce_close_se3_host
+    - &se_mount_info_list "none"
+    - &vo_sw_dir "/opt/exp_soft" #SET
+    - &queues *vos
 
 
