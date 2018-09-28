@@ -22,7 +22,7 @@ expected-from-site-level-config:
     - &ce_sf00 0
     - &ce_si00 381
     - &ce_smpsize 8
-    #batch_server: str() #value needs to be hostname of container
+    #batch_server str() #value needs to be hostname of container
     - &job_manager pbs #SET
     - &ce_batch_sys torque #SET
     - &batch_log_dir "/var/spool/pbs" #SET
@@ -31,9 +31,9 @@ expected-from-site-level-config:
     - &blparser_host *ce_host  
     - &cemon_host *ce_host
     - &cream_db_user cream
-    #cream_db_password: str()
+    #cream_db_password str()
     - &apel_mysql_host *ce_host
-    #apel_db_password: 
+    #apel_db_password
     - &ce_close_se SE3
     - &ce_close_se3_access_point "/not/used" #check
     - &ce_close_se3_host "not-used.some-domain" #check
