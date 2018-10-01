@@ -28,18 +28,23 @@ expected-from-site-level-config:
     - &batch_log_dir "/var/spool/pbs" #SET
     - &batch_version 2.5.13-1cri.9nik #SET
     - &blparser_with_updater_notifier true
-    - &blparser_host *ce_host  
-    - &cemon_host *ce_host
+    - &blparser_host 
+        - *ce_host  
+    - &cemon_host 
+        - *ce_host
     - &cream_db_user cream
     #cream_db_password str()
-    - &apel_mysql_host *ce_host
+    - &apel_mysql_host 
+        - *ce_host
     #apel_db_password
     - &ce_close_se SE3
     - &ce_close_se3_access_point "/not/used" #check
     - &ce_close_se3_host "not-used.some-domain" #check
-    - &se_list *ce_close_se3_host
+    - &se_list 
+        - *ce_close_se3_host
     - &se_mount_info_list "none"
     - &vo_sw_dir "/opt/exp_soft" #SET
-    - &queues *vos
+    - &queues 
+        - *vos
 
 
