@@ -1,3 +1,8 @@
+available-from-site-level-config:
+    - &site_lat: 0
+    - &site_long: 0 
+    - &use_argus: false
+    
 expected-from-site-level-config:
     - &globus_tcp_port_range {
         begin: 20000,
