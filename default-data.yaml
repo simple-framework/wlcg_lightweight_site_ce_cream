@@ -1,50 +1,50 @@
 expected-from-site-level-config:
-    - &cream_default_var_globus_tcp_port_range {
+    cream_default_var_globus_tcp_port_range: &cream_default_var_globus_tcp_port_range {
         begin: 20000,
         end: 21000
     }
-    - &cream_default_var_ce_capability "CPUScalingReferenceSI00=1000"
-    - &cream_default_var_ce_cpu_model Xeon
-    - &cream_default_var_ce_cpu_speed 2800
-    - &cream_default_var_ce_cpu_vendor intel
-    - &cream_default_var_ce_inboundip false
-    - &cream_default_var_ce_logcpu 0
-    - &cream_default_var_ce_minphysmem 2000
-    - &cream_default_var_ce_minvirtmem 8192
-    - &cream_default_var_ce_os ScientificCERNSLC #SET
-    - &cream_default_var_ce_os_arch "x86_64"
-    - &cream_default_var_ce_os_release "6.8" #SET
-    - &cream_default_var_ce_os_version Carbon #SET
-    - &cream_default_var_ce_otherdescr "Cores=4"
-    - &cream_default_var_ce_outboundip true
-    - &cream_default_var_ce_physcpu 0
-    - &cream_default_var_ce_runtimeenv EMI-3 #SET
-    - &cream_default_var_ce_sf00 0
-    - &cream_default_var_ce_si00 381
-    - &cream_default_var_ce_smpsize 8
+    cream_default_var_ce_capability: &cream_default_var_ce_capability "CPUScalingReferenceSI00=1000"
+    cream_default_var_ce_cpu_model: &cream_default_var_ce_cpu_model Xeon
+    cream_default_var_ce_cpu_speed: &cream_default_var_ce_cpu_speed 2800
+    cream_default_var_ce_cpu_vendor: &cream_default_var_ce_cpu_vendor intel
+    cream_default_var_ce_inboundip: &cream_default_var_ce_inboundip false
+    cream_default_var_ce_logcpu: &cream_default_var_ce_logcpu 0
+    cream_default_var_ce_minphysmem: &cream_default_var_ce_minphysmem 2000
+    cream_default_var_ce_minvirtmem: &cream_default_var_ce_minvirtmem 8192
+    cream_default_var_ce_os: &cream_default_var_ce_os ScientificCERNSLC #SET
+    cream_default_var_ce_os_arch: &cream_default_var_ce_os_arch "x86_64"
+    cream_default_var_ce_os_release: &cream_default_var_ce_os_release "6.8" #SET
+    cream_default_var_ce_os_version: &cream_default_var_ce_os_version Carbon #SET
+    cream_default_var_ce_otherdescr: &cream_default_var_ce_otherdescr "Cores=4"
+    cream_default_var_ce_outboundip: &cream_default_var_ce_outboundip true
+    cream_default_var_ce_physcpu: &cream_default_var_ce_physcpu 0
+    cream_default_var_ce_runtimeenv: &cream_default_var_ce_runtimeenv EMI-3 #SET
+    cream_default_var_ce_sf00: &cream_default_var_ce_sf00 0
+    cream_default_var_ce_si00: &cream_default_var_ce_si00 381
+    cream_default_var_ce_smpsize: &cream_default_var_ce_smpsize 8
     #batch_server str() #value needs to be hostname of container
-    - &cream_default_var_job_manager pbs #SET
-    - &cream_default_var_ce_batch_sys torque #SET
-    - &cream_default_var_batch_log_dir "/var/spool/pbs" #SET
-    - &cream_default_var_batch_version 2.5.13-1cri.9nik #SET
-    - &cream_default_var_blparser_with_updater_notifier true
-    - &cream_default_var_blparser_host 
+    cream_default_var_job_manager: &cream_default_var_job_manager pbs #SET
+    cream_default_var_ce_batch_sys: &cream_default_var_ce_batch_sys torque #SET
+    cream_default_var_batch_log_dir: &cream_default_var_batch_log_dir "/var/spool/pbs" #SET
+    cream_default_var_batch_version: &cream_default_var_batch_version 2.5.13-1cri.9nik #SET
+    cream_default_var_blparser_with_updater_notifier: &cream_default_var_blparser_with_updater_notifier true
+    cream_default_var_blparser_host: &cream_default_var_blparser_host 
         - *cream_runtime_var_ce_host  
-    - &cream_default_var_cemon_host 
+    cream_default_var_cemon_host: &cream_default_var_cemon_host 
         - *cream_runtime_var_ce_host
-    - &cream_default_var_cream_db_user cream
+    cream_default_var_cream_db_user: &cream_default_var_cream_db_user cream
     #cream_db_password str()
-    - &cream_default_var_apel_mysql_host 
+    cream_default_var_apel_mysql_host: &cream_default_var_apel_mysql_host 
         - *cream_runtime_var_ce_host
     #apel_db_password
-    - &cream_default_var_ce_close_se SE3
-    - &cream_default_var_ce_close_se3_access_point "/not/used" #check
-    - &cream_default_var_ce_close_se3_host "not-used.some-domain" #check
-    - &cream_default_var_se_list 
+    cream_default_var_ce_close_se: &cream_default_var_ce_close_se SE3
+    cream_default_var_ce_close_se3_access_point: &cream_default_var_ce_close_se3_access_point "/not/used" #check
+    cream_default_var_ce_close_se3_host: &cream_default_var_ce_close_se3_host "not-used.some-domain" #check
+    cream_default_var_se_list: &cream_default_var_se_list 
         - *cream_default_var_ce_close_se3_host
-    - &cream_default_var_se_mount_info_list "none"
-    - &cream_default_var_vo_sw_dir "/opt/exp_soft" #SET
-    - &cream_default_var_queues 
+    cream_default_var_se_mount_info_list: &cream_default_var_se_mount_info_list "none"
+    cream_default_var_vo_sw_dir: &cream_default_var_vo_sw_dir "/opt/exp_soft" #SET
+    cream_default_var_queues: &cream_default_var_queues 
         - *cream_runtime_var_queues
 
 
