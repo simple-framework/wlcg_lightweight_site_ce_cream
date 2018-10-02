@@ -2,9 +2,11 @@
 
 #General Component Desciption
 component : "Cream-CE"
-schema: "cream-info"
-level-1-schema-version: 1.0
-default: "default-data.yaml"
 version : 1.2
 docker_hub_url : ""
-puppet_forge_url: ""
+primary_config_key: "cream-info"
+site_level_config_version: 1.0
+default_var_prefix: "cream_default_var"
+runtime_vars:
+  - cream_runtime_var_ce_host
+  - cream_runtime_var_queues
