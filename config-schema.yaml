@@ -18,45 +18,45 @@ expected-from-site-level-config:
     mysql_password: { type: password(), required: true, use_default: false}
     ce_host: { type: str(), required: true, use_default: false} #value needs to be hostname of container
     globus_tcp_port_range: { type: range(), required: true, use_default: true}
-    ce_batch_sys: { type: str(), required: true, use_default: true}
+  #  ce_batch_sys: { type: str(), required: true, use_default: true}
     ce_capability: { type: str(), required: true, use_default: true} #glue
     ce_cpu_model: { type: str(), required: true, use_default: true} #glue
     ce_cpu_speed: { type: int(), required: true, use_default: true} #GlueHostProcessorClockSpeed
     ce_cpu_vendor: { type: str(), required: true, use_default: true}
-    ce_inboundip: { type: bool(), required: true, use_default: false} #GlueHostNetworkAdapterInboundIP
-    ce_logcpu: { type: int(), required: true, use_defaul8t: false} # GlueSubClusterLogicalCPUs
-    ce_minphysmem: { type: int(), required: true, use_default: false}
-    ce_minvirtmem: { type: int(), required: true, use_default: false}
-    ce_os: { type: str(), required: true, use_default: true} #default value for container; SET
-    ce_os_arch: { type: str(), required: true, use_default: false} #GlueHostArchitecturePlatformType
-    ce_os_release: { type: str(), required: true, use_default: true} #SET
-    ce_os_version: { type: str(), required: true, use_default: true}
+    ce_inboundip: { type: bool(), required: true, use_default: true} #GlueHostNetworkAdapterInboundIP
+    ce_logcpu: { type: int(), required: true, use_default: true} # GlueSubClusterLogicalCPUs
+    ce_minphysmem: { type: int(), required: true, use_default: true}
+    ce_minvirtmem: { type: int(), required: true, use_default: true}
+ #  ce_os: { type: str(), required: true, use_default: true} #default value for container; SET
+    ce_os_arch: { type: str(), required: true, use_default: true} #GlueHostArchitecturePlatformType
+ #   ce_os_release: { type: str(), required: true, use_default: true} #SET
+ #   ce_os_version: { type: str(), required: true, use_default: true}
     ce_otherdescr: { type: str(), required: false, use_default: true}
-    ce_outboundip: { type: bool(), required: true, use_default: false} # GlueHostNetworkAdapterOutboundIP
-    ce_physcpu: { type: int(), required: true, use_default: false} #GlueSubClusterPhysicalCPUs
+    ce_outboundip: { type: bool(), required: true, use_default: true} # GlueHostNetworkAdapterOutboundIP
+    ce_physcpu: { type: int(), required: true, use_default: true} #GlueSubClusterPhysicalCPUs
     ce_runtimeenv: { type: str(), required: true, use_default: true} #GlueHostApplicationSoftwareRunTimeEnvironmen
-    ce_sf00: { type: int(), required: true, use_default: false} #GlueHostBenchmarkSF00
-    ce_si00: { type: int(), required: true, use_default: false} #
-    ce_smpsize: { type: int(), required: false, use_default: false} #GlueHostArchitectureSMPSize
-    batch_server: { type: fqdn(), required: true, use_default: true} #SET
-    job_manager: { type: str(), required: true, use_default: true} #SET
-    ce_batch_sys: { type: str(), required: true, use_default: true} #SET
+    ce_sf00: { type: int(), required: true, use_default: true} #GlueHostBenchmarkSF00
+    ce_si00: { type: int(), required: true, use_default: true} #
+    ce_smpsize: { type: int(), required: false, use_default: true} #GlueHostArchitectureSMPSize
+ #   batch_server: { type: fqdn(), required: true, use_default: true} #SET
+ #   job_manager: { type: str(), required: true, use_default: true} #SET
+ #   ce_batch_sys: { type: str(), required: true, use_default: true} #SET
     batch_log_dir: { type: path(), required: true, use_default: true}
-    batch_version: { type: str(), required: true, use_default: true} #SET
-    blparser_with_updater_notifier: { type: bool(), required: true, use_default: false}
-    blparser_host: { type: fqdn(), required: true, use_default: false}
-    cemon_host: { type: fqdn(), required: true, use_default: false}
+ #   batch_version: { type: str(), required: true, use_default: true} #SET
+    blparser_with_updater_notifier: { type: bool(), required: true, use_default: true}
+    blparser_host: { type: fqdn(), required: true, use_default: true}
+    cemon_host: { type: fqdn(), required: true, use_default: true}
     cream_db_user: { type: str(), required: true, use_default: true}
     cream_db_password: { type: password(), required: true, use_default: false}
-    apel_mysql_host: { type: str(), required: true, use_default: false}
-    apel_db_password: { type: password(), required: true, use_default: true}
-    ce_close_se: { type: str(), required: false, use_default: false} #link?
+    apel_mysql_host: { type: str(), required: true, use_default: true}
+    apel_db_password: { type: password(), required: true, use_default: false}
+    ce_close_se: { type: str(), required: false, use_default: true} #link?
     ce_close_se3_access_point: { type: path(), required: true, use_default: true} #link?
     ce_close_se3_host: { type: fqdn(), required: true, use_default: true} #link?
     se_list: { type: str(), required: true, use_default: true}
     se_mount_info_list: { type: str(), required: true, use_default: true}
     vo_sw_dir: { type: path(), required: true, use_default: true}
-    queues: { type: str(), required: true, use_default: true}
+    queues: { type: str(), required: true, use_default: s}
     # alice_group_enable: str()
     # vo_alice_default_se: str()
     # vo_alice_queues: str()
