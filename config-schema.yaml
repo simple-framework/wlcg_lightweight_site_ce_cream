@@ -16,7 +16,7 @@ available-from-site-level-config:
     vos: { type: yaml_object(), required: true, use_default: false }
 expected-from-site-level-config:
     mysql_password: { type: password(), required: true, use_default: false}
-    ce_host: { type: str(), required: true, use_default: false} #value needs to be hostname of container
+  #  ce_host: { type: str(), required: true, use_default: false} #value needs to be hostname of container
     globus_tcp_port_range: { type: range(), required: true, use_default: true}
   #  ce_batch_sys: { type: str(), required: true, use_default: true}
     ce_capability: { type: str(), required: true, use_default: true} #glue
