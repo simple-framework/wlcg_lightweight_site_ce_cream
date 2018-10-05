@@ -1,4 +1,4 @@
-expected-from-site-level-config:
+cream-ce-expected-from-site-level-config:
     cream_default_var_globus_tcp_port_range: &cream_default_var_globus_tcp_port_range {
         begin: 20000,
         end: 21000
