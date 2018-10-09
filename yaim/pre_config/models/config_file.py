@@ -5,8 +5,9 @@ class ConfigFile:
         self.output_file = output_file
         self.data = data
 
-    def add_categories(self, category):
-        self.categories.append(category)
+    def add_categories(self, categories):
+        for category in categories:
+            self.categories.append(category)
 
     def evaluate_categories(self):
         for category in self.categories:
@@ -22,5 +23,5 @@ class ConfigFile:
         output_file.close()
 
     def generate_yaim_output(self, key, value):
-        env_variable = key.upper() + "=" + value + "\n"
+        env_variable = key.upper() + "=" + str(value) + "\n"
         return env_variable

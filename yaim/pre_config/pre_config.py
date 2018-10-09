@@ -2,7 +2,7 @@ import argparse
 import yaml
 import yaql
 from models.config_file import ConfigFile
-from categories import cream_info_static
+from categories import cream_info_static, cream_info_site_level
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -13,8 +13,12 @@ def parse_args():
     }
 
 def get_cream_info_file_categories(data):
-    static_category = cream_info_static.get()
-    return static_category
+    categories = []
+    static_category = cream_info_static.get(data)
+    site_level = cream_info_site_level.get(data)
+    categories.append(static_category)
+    categories.append(site_level)
+    return categories
 
 if __name__ == "__main__":
     args = parse_args()
@@ -26,6 +30,7 @@ if __name__ == "__main__":
     groups_file = ConfigFile('./.temp/groups.conf', data)
     wn_list_file = ConfigFile('./.temp/wn-list.conf', data)
     edgusers_file = ConfigFile('./.temp/edgusers.conf', data)
+
     cream_info_file.add_categories(get_cream_info_file_categories(data))
     cream_info_file.evaluate_categories()
     cream_info_file.generate_output_file()

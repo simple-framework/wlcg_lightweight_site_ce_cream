@@ -5,9 +5,10 @@ from abc import ABCMeta
 class ParameterCategory:
     __metaclass__ = ABCMeta
 
-    def __init__(self, name):
+    def __init__(self, name, data):
         self.engine = yaql.factory.YaqlFactory().create()
         self.name = name
+        self.data = data
         self.evaluated_object = {}
 
     def get(self):
@@ -20,10 +21,9 @@ class ParameterCategory:
 class ParameterQueriedCategory(ParameterCategory):
 
     def __init__(self, name, data):
-        ParameterCategory.__init__(self, name)
+        ParameterCategory.__init__(self, name, data)
         self.name = name
         self.param_query_pairs = {}
-        self.data = data
 
     def add(self, param, query):
         self.param_query_pairs[param] = query
@@ -45,8 +45,8 @@ class ParameterQueriedCategory(ParameterCategory):
 
 class ParameterStaticCategory(ParameterCategory):
 
-    def __init__(self, name):
-        ParameterCategory.__init__(self, name)
+    def __init__(self, name, data):
+        ParameterCategory.__init__(self, name, data)
         self.name = name
         self.evaluated_object = {}
 
