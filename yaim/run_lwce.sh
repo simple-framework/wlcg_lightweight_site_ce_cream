@@ -77,4 +77,4 @@ echo "The following docker command will be executed:"
 echo $DOCKER_RUN
 
 $DOCKER_RUN
-sudo docker exec -it lwce-umd4 /ce-config/init.sh
+sudo docker exec -it $HOST /ce-config/init.sh
