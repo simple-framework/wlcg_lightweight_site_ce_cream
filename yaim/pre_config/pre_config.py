@@ -22,7 +22,7 @@ def get_cream_info_file_categories(data, id):
     categories.append(static)
     categories.append(queried)
     categories.append(advanced)
-    return static + queried
+    return static + queried + advanced
 
 if __name__ == "__main__":
     args = parse_args()
