@@ -23,7 +23,7 @@ case $i in
 	;;
 	-h|--help)
 	echo "Usage:"
-	echo "run_lwce.ch [--ip=<value>] [--host=<value>] [--net=<hostname:ip>] [[--node=<hostname:ip>] [--node=<hostname:ip>] ...]"
+	echo "run_lwce.ch [--ip=<value>] [--host=<value>] [--net=<overlay_network_name>] [[--node=<hostname:ip>] [--node=<hostname:ip>] ...]"
 	printf "\n"
 	echo "Options:"
 	echo "1. ip: REQUIRED; The IP address to be assigned to the container."
