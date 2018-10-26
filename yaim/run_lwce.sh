@@ -59,7 +59,6 @@ echo "NET = ${NET}"
 if [ -z "$CONFIG" ]
 then
 	CONFIG=$(pwd)/ce-config
-	exit 1
 fi
 echo "CONFIG = ${CONFIG}"
 for NODE in ${NODES[@]}; do
