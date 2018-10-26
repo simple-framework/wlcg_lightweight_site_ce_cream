@@ -63,8 +63,9 @@ fi
 echo "CONFIG = ${CONFIG}"
 for NODE in ${NODES[@]}; do
 	echo "NODE = $NODE"
+	WNODE=`echo $NODE | cut -d ":" -f 1`
+	echo ${WNODE} >> $CONFIG/CE/wn-list.conf
 done
-
 
 echo "${DOCKER_RUN}"
 DOCKER_RUN="$DOCKER_RUN -itd -d"
