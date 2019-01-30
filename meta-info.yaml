@@ -11,12 +11,12 @@ runtime_vars:
   - cream_runtime_var_queues
 host_requirements:
  "firewall":
-    - ports: "[22, 8080]"
+    - ports: 22
       protocol: tcp
       action: accept
       ipv6: true 
  
-    - ports: "[6543]"
+    - ports: 6543
       protocol: tcp
       action: accept
       ipv6: false
