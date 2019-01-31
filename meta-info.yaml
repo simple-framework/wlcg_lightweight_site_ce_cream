@@ -1,8 +1,8 @@
 #General Component Desciption
-component : Cream-CE
+component : "Cream-CE"
 version : 1.2
 docker_hub_url : ""
-primary_config_key: cream-info
+primary_config_key: "cream-info"
 site_level_config_version: 1.0
 default_var_prefix: cream_default_var
 runtime_vars:
@@ -23,5 +23,5 @@ host_requirements:
  
  docker_run_parameters:
   privileged: true
-  mount: ce-cream
+  mount: "ce-cream"
   hostname: *cream_runtime_var_ce_host
