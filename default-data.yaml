@@ -29,22 +29,22 @@ cream-ce-expected-from-site-level-config:
     #cream_default_var_batch_version: &cream_default_var_batch_version 2.5.13-1cri.9nik #SET
     cream_default_var_blparser_with_updater_notifier: &cream_default_var_blparser_with_updater_notifier true
     cream_default_var_blparser_host: &cream_default_var_blparser_host 
-        - *cream_runtime_var_ce_host  
+        __from__: *cream_runtime_var_ce_host
     cream_default_var_cemon_host: &cream_default_var_cemon_host 
-        - *cream_runtime_var_ce_host
+        __from__: *cream_runtime_var_ce_host
     cream_default_var_cream_db_user: &cream_default_var_cream_db_user cream
     #cream_db_password str()
     cream_default_var_apel_mysql_host: &cream_default_var_apel_mysql_host 
-        - *cream_runtime_var_ce_host
+        __from__: *cream_runtime_var_ce_host
     #apel_db_password
     cream_default_var_ce_close_se: &cream_default_var_ce_close_se SE3
     cream_default_var_ce_close_se3_access_point: &cream_default_var_ce_close_se3_access_point "/not/used" #check
     cream_default_var_ce_close_se3_host: &cream_default_var_ce_close_se3_host "not-used.some-domain" #check
     cream_default_var_se_list: &cream_default_var_se_list 
-        - *cream_default_var_ce_close_se3_host
+        __from__: *cream_default_var_ce_close_se3_host
     cream_default_var_se_mount_info_list: &cream_default_var_se_mount_info_list "none"
     cream_default_var_vo_sw_dir: &cream_default_var_vo_sw_dir "/opt/exp_soft" #SET
     cream_default_var_queues: &cream_default_var_queues 
-        - *cream_runtime_var_queues
+        __from__: *cream_runtime_var_queues
 
 
