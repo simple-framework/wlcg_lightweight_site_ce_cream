@@ -26,7 +26,7 @@ def globus_tcp_port_range(component_section):
 def vos(component_section, data):
     result = ""
     vos = evaluate(data, "$.supported_virtual_organizations")
-    print vos
+    print(vos)
     return "yolo"
 
 def get(data, id):
