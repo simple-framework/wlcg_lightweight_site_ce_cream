@@ -55,7 +55,8 @@ expected-from-site-level-config:
     ce_close_se3_host: { type: fqdn(), required: true, use_default: true} #link?
     se_list: { type: str(), required: true, use_default: true}
     se_mount_info_list: { type: str(), required: true, use_default: true}
-    queues: { type: str(), required: true, use_default: s}
+    queues: { type: queue(), required: false, use_default: false}
+    supported_vos: {type:vo(), required: false, use_default: false}
     # alice_group_enable: str()
     # vo_alice_default_se: str()
     # vo_alice_queues: str()
