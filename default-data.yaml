@@ -43,7 +43,6 @@ cream-ce-expected-from-site-level-config:
     cream_default_var_se_list: &cream_default_var_se_list 
         __from__: *cream_default_var_ce_close_se3_host
     cream_default_var_se_mount_info_list: &cream_default_var_se_mount_info_list "none"
-    cream_default_var_vo_sw_dir: &cream_default_var_vo_sw_dir "/opt/exp_soft" #SET
     cream_default_var_queues: &cream_default_var_queues 
         __from__: *cream_runtime_var_queues
 
