@@ -102,6 +102,63 @@ lightweight_components:
     mysql_password: fteu5746hg
     ce_cpu_model: Xeon
     ce_cpu_speed: 3000
+    queues:
+      alice:
+      - voms_fqan: /alice
+        pool_accounts:
+        - base_name: alice
+          initial_uid: 10417
+          users_num: 5
+          primary_group:
+            gid: 1395
+            name: alice
+          secondary_groups: []
+        vo:
+          name: alice
+          servers:
+          - server: voms2.cern.ch
+            port: '15000'
+            dn: /DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch
+            ca_dn: /DC=ch/DC=cern/CN=CERN Grid Certification Authority
+          - server: lcg-voms2.cern.ch
+            port: '15000'
+            dn: /DC=ch/DC=cern/OU=computers/CN=lcg-voms2.cern.ch
+            ca_dn: /DC=ch/DC=cern/CN=CERN Grid Certification Authority
+          default_se: not_used.some-domain
+          sw_dir: .
+          storage_dir: /not/used
+      - voms_fqan: /alice/ROLE=lcgadmin
+        pool_accounts:
+        - base_name: alice
+          initial_uid: 10417
+          users_num: 5
+          primary_group:
+            gid: 1395
+            name: alice
+          secondary_groups: []
+        - base_name: sgmali
+          initial_uid: 60101
+          users_num: 10
+          primary_group:
+            gid: 1397
+            name: alicesgm
+          secondary_groups:
+          - gid: 1395
+            name: alice
+        vo:
+          name: alice
+          servers:
+          - server: voms2.cern.ch
+            port: '15000'
+            dn: /DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch
+            ca_dn: /DC=ch/DC=cern/CN=CERN Grid Certification Authority
+          - server: lcg-voms2.cern.ch
+            port: '15000'
+            dn: /DC=ch/DC=cern/OU=computers/CN=lcg-voms2.cern.ch
+            ca_dn: /DC=ch/DC=cern/CN=CERN Grid Certification Authority
+          default_se: not_used.some-domain
+          sw_dir: .
+          storage_dir: /not/used
     ce_close_se3_host: not-used.some-domain
     se_mount_info_list: none
   repository_revision: master
@@ -161,7 +218,9 @@ default_pool_accounts_dteam:
   base_name: dteam
   initial_uid: 18118
   users_num: 10
-  primary_group: dteam
+  primary_group:
+    gid: 2688
+    name: dteam
   secondary_groups: []
 default_vo_dteam:
   name: dteam
@@ -193,7 +252,9 @@ default_pool_accounts_dteamsgm:
   base_name: sgmdtm
   initial_uid: 60501
   users_num: 5
-  primary_group: dteamsgm
+  primary_group:
+    gid: 2680
+    name: dteamsgm
   secondary_groups:
   - gid: 2688
     name: dteam
@@ -304,7 +365,9 @@ voms_config:
   - base_name: dteam
     initial_uid: 18118
     users_num: 10
-    primary_group: dteam
+    primary_group:
+      gid: 2688
+      name: dteam
     secondary_groups: []
   vo:
     name: dteam
@@ -325,14 +388,18 @@ voms_config:
   - base_name: sgmdtm
     initial_uid: 60501
     users_num: 5
-    primary_group: dteamsgm
+    primary_group:
+      gid: 2680
+      name: dteamsgm
     secondary_groups:
     - gid: 2688
       name: dteam
   - base_name: dteam
     initial_uid: 18118
     users_num: 10
-    primary_group: dteam
+    primary_group:
+      gid: 2688
+      name: dteam
     secondary_groups: []
   vo:
     name: dteam
@@ -368,21 +435,28 @@ voms_config:
   - base_name: ops
     initial_uid: 45001
     users_num: 10
-    primary_group: ops
-    secondary_group: []
+    primary_group:
+      gid: 45000
+      name: ops
+    secondary_groups: []
 - voms_fqan: /ops/ROLE=lcgadmin
   pool_accounts:
   - base_name: sgmops
     initial_uid: 60701
     users_num: 10
-    primary_group: ops
+    primary_group:
+      gid: 45000
+      name: ops
     secondary_groups:
-    - opssgm
+    - gid: 46001
+      name: opssgm
   - base_name: ops
     initial_uid: 45001
     users_num: 10
-    primary_group: ops
-    secondary_group: []
+    primary_group:
+      gid: 45000
+      name: ops
+    secondary_groups: []
   vo:
     name: ops
     servers:
@@ -460,8 +534,10 @@ default_pool_account_ops:
   base_name: ops
   initial_uid: 45001
   users_num: 10
-  primary_group: ops
-  secondary_group: []
+  primary_group:
+    gid: 45000
+    name: ops
+  secondary_groups: []
 wn-pbs-expected-from-site-level-config:
   pbs_default_var_px_host: myproxy.cern.ch
   pbs_default_var_ce_host: lightweight_component02.cern.ch
@@ -517,7 +593,10 @@ default_pool_account_opssgm:
   base_name: sgmops
   initial_uid: 60701
   users_num: 10
-  primary_group: ops
+  primary_group:
+    gid: 45000
+    name: ops
   secondary_groups:
-  - opssgm
+  - gid: 46001
+    name: opssgm
 default_group_dteam_name: dteam

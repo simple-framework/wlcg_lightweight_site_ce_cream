@@ -2,7 +2,7 @@ import argparse
 import yaml
 import yaql
 from models.config_file import ConfigFile
-from categories import cream_info_static, cream_info_queried, cream_info_advanced
+from categories import cream_info_static, cream_info_queried, cream_info_advanced, users_advanced
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -16,15 +16,17 @@ def parse_args():
         'output_dir': args.output_dir
     }
 
+
 def get_cream_info_file_categories(data, id):
-    categories = []
     static = cream_info_static.get(data)
     queried = cream_info_queried.get(data, id)
     advanced = cream_info_advanced.get(data, id)
-    categories.append(static)
-    categories.append(queried)
-    categories.append(advanced)
     return static + queried + advanced
+
+
+def get_users_conf_file_categories(data, id):
+    advanced = users_advanced.get(data, id)
+    return advanced
 
 if __name__ == "__main__":
     args = parse_args()
@@ -41,3 +43,6 @@ if __name__ == "__main__":
 
     cream_info_file.add_categories(get_cream_info_file_categories(data, id))
     cream_info_file.generate_output_file()
+
+    users_file.add_categories(get_users_conf_file_categories(data, id))
+    users_file.generate_output_file()

@@ -1,23 +1,8 @@
 from models.parameter_category import ParameterCategory
-
+from helpers.generic_helpers import get_voms_config, evaluate, get_component_section
 import yaql
 
 
-engine = yaql.YaqlFactory().create()
-
-def evaluate(data, query):
-    expression = engine(query)
-    return expression.evaluate(data)
-
-def get_component_section(data, id):
-    for component in data['lightweight_components']:
-        if component['id'] is int(id):
-            return component
-
-def get_yaml_sections(data, id):
-    sections = {}
-    site_section = "$.site"
-    return sections
 
 def globus_tcp_port_range(component_section):
     return "ram gopal verma ki aag"
@@ -62,34 +47,7 @@ def append_queue_info(advanced_category, component_section, data):
     try:
         queues = component_section['config']['queues']
     except KeyError:
-        default_voms_config = []
-        try:
-            supported_vos = component_section['config']['vos']
-        except KeyError:
-            supported_vos = evaluate(data, "$.supported_virtual_organizations")
-        try:
-            voms_config = data['voms_config']
-        except KeyError:
-            for vo in supported_vos:
-                default_pool_accounts = []
-                default_pool_account_key = "default_pool_account_" + vo['name']
-                default_pool_account__sgm_key = "default_pool_account_" + vo['name'] + "sgm"
-                if default_pool_account_key in data:
-                    default_pool_accounts.append(data[default_pool_account_key])
-                    default_voms_config.append({
-                        'voms_fqan': "/{vo_name}".format(vo_name=vo['name']),
-                        'vo': vo,
-                        'pool_accounts': default_pool_accounts
-                    })
-                if default_pool_account__sgm_key in data:
-                    default_pool_accounts.append(data[default_pool_account__sgm_key])
-                    default_voms_config.append({
-                        'voms_fqan': '/{vo_name}/ROLE=lcgadmin',
-                        'vo': vo,
-                        'pool_accounts': default_pool_accounts
-                    })
-            voms_config = default_voms_config
-
+        voms_config = get_voms_config(data, component_section)
         #generate queues from voms_config
         for config in voms_config:
             key = config['vo']['name']
@@ -97,6 +55,7 @@ def append_queue_info(advanced_category, component_section, data):
                 queues[key].append(config)
             else:
                 queues[key] = [config]
+
     for queue in queues:
         voms_configs = queues[queue]
         groups_enable_key = "{queue}_group_enable".format(queue = queue)
