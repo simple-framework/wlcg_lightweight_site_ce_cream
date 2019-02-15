@@ -1,4 +1,5 @@
 component : "Cream-CE"
+type: compute_element
 version : 1.2
 docker_hub_url : ""
 primary_config_key: "cream-info"
