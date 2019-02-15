@@ -2,7 +2,11 @@ import argparse
 import yaml
 import yaql
 from models.config_file import ConfigFile
-from categories import cream_info_static, cream_info_queried, cream_info_advanced, users_advanced, groups_advanced
+from categories import cream_info_static, cream_info_queried, cream_info_advanced, \
+    users_advanced, \
+    groups_advanced, \
+    edgusers_static, \
+    wn_list_advanced
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -34,6 +38,15 @@ def get_groups_conf_file_categories(data, id):
     return advanced
 
 
+def get_edgusers_file_categories(data):
+    static = edgusers_static.get(data)
+    return  static
+
+
+def get_wn_list_file_categories(data):
+    advanced = wn_list_advanced.get(data)
+    return advanced
+
 if __name__ == "__main__":
     args = parse_args()
     id = args['execution_id']
@@ -44,7 +57,7 @@ if __name__ == "__main__":
     cream_info_file = ConfigFile(output_dir +'/cream-info.def', data)
     users_file = ConfigFile(output_dir + '/users.conf', data)
     groups_file = ConfigFile(output_dir + '/groups.conf', data)
-    wn_list_file = ConfigFile(output_dir + 'wn-list.conf', data)
+    wn_list_file = ConfigFile(output_dir + '/wn-list.conf', data)
     edgusers_file = ConfigFile(output_dir + '/edgusers.conf', data)
 
     cream_info_file.add_categories(get_cream_info_file_categories(data, id))
@@ -55,3 +68,9 @@ if __name__ == "__main__":
 
     groups_file.add_categories(get_groups_conf_file_categories(data, id))
     groups_file.generate_output_file()
+
+    edgusers_file.add_categories(get_edgusers_file_categories(data))
+    edgusers_file.generate_output_file()
+
+    wn_list_file.add_categories(get_wn_list_file_categories(data))
+    wn_list_file.generate_output_file()

@@ -1,5 +1,6 @@
 meta_info_wn-pbs:
   component: WN-Pbs
+  type: worker_node
   version: 2.5.13
   docker_hub_url: ''
   primary_config_key: pbs-info
@@ -506,6 +507,7 @@ default_group_dteam:
   name: dteam
 meta_info_cream-ce:
   component: Cream-CE
+  type: compute_element
   version: 1.2
   docker_hub_url: ''
   primary_config_key: cream-info
@@ -600,3 +602,13 @@ default_pool_account_opssgm:
   - gid: 46001
     name: opssgm
 default_group_dteam_name: dteam
+dns:
+- hostname: lightweight_component01.cern.ch
+  ip: 10.0.0.1
+  type: compute_element
+- hostname: WN-Pbs_0_lightweight_component02_1_cern.ch
+  ip: 10.0.0.2
+  type: worker_node
+- hostname: WN-Pbs_1_lightweight_component02_1_cern.ch
+  ip: 10.0.0.3
+  type: worker_node
