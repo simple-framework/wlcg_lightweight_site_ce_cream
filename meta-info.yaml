@@ -7,7 +7,6 @@ site_level_config_version: 1.0
 default_var_prefix: cream_default_var
 runtime_vars:
   - cream_runtime_var_ce_host
-  - cream_runtime_var_queues
 host_requirements:
   firewall:
     - ports: 22
