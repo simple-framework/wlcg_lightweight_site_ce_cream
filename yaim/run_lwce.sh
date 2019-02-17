@@ -16,6 +16,10 @@ case $i in
 	NET="${i#*=}"
 	shift
 	;;
+	--config=*)
+	CONFIG="${i#*=}"
+	shift
+	;;
 	--node=*)
 	NODES[NODE_INDEX]="${i#*=}"
 	NODE_INDEX=$((NODE_INDEX + 1))
@@ -23,7 +27,7 @@ case $i in
 	;;
 	-h|--help)
 	echo "Usage:"
-	echo "run_lwce.ch [--ip=<value>] [--host=<value>] [--net=<overlay_network_name>] [[--node=<hostname:ip>] [--node=<hostname:ip>] ...]"
+	echo "run_lwce.ch [--ip=<value>] [--host=<value>] [--net=<overlay_network_name>] [--config=<ce-config_path>] [[--node=<hostname:ip>] [--node=<hostname:ip>] ...]"
 	printf "\n"
 	echo "Options:"
 	echo "1. ip: REQUIRED; The IP address to be assigned to the container."
@@ -52,10 +56,16 @@ echo "Starting container..."
 echo "IP = ${IP}"
 echo "HOST = ${HOST}"
 echo "NET = ${NET}"
+if [ -z "$CONFIG" ]
+then
+	CONFIG=$(pwd)/ce-config
+fi
+echo "CONFIG = ${CONFIG}"
 for NODE in ${NODES[@]}; do
 	echo "NODE = $NODE"
+	WNODE=`echo $NODE | cut -d ":" -f 1`
+	echo ${WNODE} >> $CONFIG/CE/wn-list.conf
 done
-
 
 echo "${DOCKER_RUN}"
 DOCKER_RUN="$DOCKER_RUN -itd -d"
@@ -70,7 +80,8 @@ for PORT in ${PORTS[@]}; do
     DOCKER_RUN="$DOCKER_RUN -p $PORT:$PORT"
 done
 DOCKER_RUN="$DOCKER_RUN --privileged"
-DOCKER_RUN="$DOCKER_RUN --mount type=bind,source="$(pwd)"/ce-config,target=/ce-config"
+#DOCKER_RUN="$DOCKER_RUN --mount type=bind,source="$(pwd)"/ce-config,target=/ce-config"
+DOCKER_RUN="$DOCKER_RUN --mount type=bind,source="${CONFIG}",target=/ce-config"
 DOCKER_RUN="$DOCKER_RUN maany/lwce-umd4 /bin/bash"
 
 echo "The following docker command will be executed:"
