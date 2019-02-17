@@ -58,8 +58,6 @@ def get(data, id):
     component_category.add_key_value_query("ce_close_se3_host", "$.config.ce_close_se3_host") #additional
     component_category.add_key_value_query("se_list", "$.config.se_list") #list
     component_category.add_key_value_query("se_mount_info_list", "$.config.se_mount_info_list") #additional
-    component_category.add_key_value_query("vo_sw_dir", "$.config.vo_sw_dir") #additional
-    component_category.add_key_value_query("queues", "$.config.queues") #additional
 
 
     return [site_category, component_category]

@@ -34,7 +34,7 @@ class ParameterCategory:
     def evaluate_query(self, parameter):
         query = self.param_query_pairs[parameter]
         expression = self.engine(query)
-        return  expression.evaluate(self.data)
+        return expression.evaluate(self.data)
 
     def evaluate_all_queries(self):
         for parameter in self.param_query_pairs:
