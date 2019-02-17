@@ -1,11 +1,13 @@
 from models.parameter_category import ParameterCategory
 from helpers.generic_helpers import get_voms_config, evaluate, get_component_section
-import yaql
 
 
 
 def globus_tcp_port_range(component_section):
-    return "ram gopal verma ki aag"
+    begin = component_section['config']['globus_tcp_port_range']['begin']
+    end = component_section['config']['globus_tcp_port_range']['end']
+    return "{begin}, {end}".format(begin=begin, end=end)
+
 
 
 def append_vo_data(advanced_category, component_section, data):

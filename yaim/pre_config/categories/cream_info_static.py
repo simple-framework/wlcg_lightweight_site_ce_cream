@@ -15,6 +15,6 @@ def get(data):
     category.add_key_value("job_manager", "pbs")
     category.add_key_value("ce_batch_sys", "torque")
     category.add_key_value("batch_version", "2.5.13-1cri.9nik")
-    #datacategory.add_key_value("vo_sw_dir", "/opt/exp_soft")
+    category.add_key_value("vo_sw_dir", "/opt/exp_soft")
 
     return [category]
