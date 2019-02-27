@@ -33,7 +33,7 @@ service rsyslog start
 service sshd start
 echo "Starting YAIM..."
 /opt/glite/yaim/bin/yaim -c  \
-        -s /ce-config/CE/cream-info.def \
+        -s /config/cream-info.def \
         -n creamCE \
         -n TORQUE_server \
         -n TORQUE_utils \
