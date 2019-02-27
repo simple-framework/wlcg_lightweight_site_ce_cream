@@ -22,5 +22,17 @@ host_requirements:
  
 docker_run_parameters:
   privileged: true
-  mount: "ce-cream"
   hostname: *cream_runtime_var_ce_host
+  ports:
+    - "8443:8443"
+    - "2811:2811"
+    - "20000-21000"
+    - "49152:"
+    - "49155"
+    - "9002"
+    - "9001"
+    - "3306"
+    - "2170"
+    - "33333"
+    - "56565"
+    - "56554"
