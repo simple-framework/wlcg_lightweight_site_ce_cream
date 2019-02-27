@@ -12,12 +12,64 @@ host_requirements:
     - ports: 22
       protocol: tcp
       action: accept
-      ipv6: true 
- 
-    - ports: 6543
+      ipv6: true
+    - ports: 8443
       protocol: tcp
       action: accept
       ipv6: false
+    - ports: 20000-21000
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 49152
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 49155
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 49152
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 9002
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 9002
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 9002
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 9001
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 3306
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 2170
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 33333
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 56565
+      protocol: tcp
+      action: accept
+      ipv6: false
+    - ports: 56554
+      protocol: tcp
+      action: accept
+      ipv6: false
+
   cvmfs: true
  
 docker_run_parameters:
