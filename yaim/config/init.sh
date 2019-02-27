@@ -1,8 +1,8 @@
 #!/bin/bash
 #copy host certificates
 echo "Copying host certificates..."
-cp /ce-config/host-certificates/hostcert.pem /etc/grid-security/
-cp /ce-config/host-certificates/hostkey.pem /etc/grid-security/
+cp /config/host-certificates/hostcert.pem /etc/grid-security/
+cp /config/host-certificates/hostkey.pem /etc/grid-security/
 
 #set permissions
 echo "Setting permissions for host certificates..."
@@ -14,10 +14,10 @@ echo "Done"
 chmod 700 -R /ce-config/CE/*
 
 #move configuration files to the correct place
-cp /ce-config/CE/wn-list.conf /root/
-cp /ce-config/CE/users.conf /root/
-cp /ce-config/CE/groups.conf /root/
-cp /ce-config/CE/edgusers.conf /root/
+cp /config/CE/wn-list.conf /root/
+cp /config/CE/users.conf /root/
+cp /config/CE/groups.conf /root/
+cp /config/CE/edgusers.conf /root/
 
 #run YAIM
 ln -s /usr/share/java/bcprov-1.58.jar /usr/share/java/bcprov.jar
@@ -29,7 +29,7 @@ else
   echo "Line Number is ${LINE_NUMBER}"
   sed -ie $LINE_NUMBER's/$/, &/' /etc/glite-ce-cream/populate_creamdb_mysql.sql
 fi
-
+service rsyslog start
 service sshd start
 echo "Starting YAIM..."
 /opt/glite/yaim/bin/yaim -c  \
