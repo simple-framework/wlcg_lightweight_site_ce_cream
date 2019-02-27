@@ -70,11 +70,11 @@ for PORT in ${PORTS[@]}; do
     DOCKER_RUN="$DOCKER_RUN -p $PORT:$PORT"
 done
 DOCKER_RUN="$DOCKER_RUN --privileged"
-DOCKER_RUN="$DOCKER_RUN --mount type=bind,source="$(pwd)"/ce-config,target=/ce-config"
+DOCKER_RUN="$DOCKER_RUN --mount type=bind,source="$(pwd)"/config,target=/config"
 DOCKER_RUN="$DOCKER_RUN maany/lwce-umd4 /bin/bash"
 
 echo "The following docker command will be executed:"
 echo $DOCKER_RUN
 
 $DOCKER_RUN
-sudo docker exec -it ${HOST} /ce-config/init.sh
+sudo docker exec -it ${HOST} /config/init.sh
