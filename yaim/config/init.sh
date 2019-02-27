@@ -11,13 +11,13 @@ chmod 644 /etc/grid-security/hostcert.pem
 echo "Done"
 
 # set permissions on yaim directory
-chmod 700 -R /ce-config/CE/*
+chmod 700 -R /config/*
 
 #move configuration files to the correct place
-cp /config/CE/wn-list.conf /root/
-cp /config/CE/users.conf /root/
-cp /config/CE/groups.conf /root/
-cp /config/CE/edgusers.conf /root/
+cp /config/wn-list.conf /root/
+cp /config/users.conf /root/
+cp /config/groups.conf /root/
+cp /config/edgusers.conf /root/
 
 #run YAIM
 ln -s /usr/share/java/bcprov-1.58.jar /usr/share/java/bcprov.jar
