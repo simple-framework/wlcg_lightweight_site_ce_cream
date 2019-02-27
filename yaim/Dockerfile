@@ -64,7 +64,7 @@ RUN mkdir /var/spool/pbs/checkpoint
 RUN perl -pi.bak -e 's/while.*]/for i in `seq 10`/' /etc/init.d/pbs_server
 
 # Mount Volume for configuration parameters
-VOLUME /ce-config
+VOLUME /config
 
 # init script on launch
 #ENTRYPOINT ["/ce-config/init.sh"]
