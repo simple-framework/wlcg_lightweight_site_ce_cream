@@ -19,6 +19,10 @@ cp /config/users.conf /root/
 cp /config/groups.conf /root/
 cp /config/edgusers.conf /root/
 
+# Fix delay on bdii startup service
+sed -i 's/sleep 2/sleep 10/g' /etc/init.d/bdii
+sed -i 's/sleep 2/sleep 10/g' /etc/rc.d/init.d/bdii
+
 #run YAIM
 ln -s /usr/share/java/bcprov-1.58.jar /usr/share/java/bcprov.jar
 if grep -Fxq "creationTime  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP," /etc/glite-ce-cream/populate_creamdb_mysql.sql
