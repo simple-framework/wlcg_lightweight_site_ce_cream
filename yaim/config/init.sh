@@ -23,6 +23,9 @@ cp /config/edgusers.conf /root/
 sed -i 's/sleep 2/sleep 10/g' /etc/init.d/bdii
 sed -i 's/sleep 2/sleep 10/g' /etc/rc.d/init.d/bdii
 
+# Update CA-EGI-policy
+yum update -y ca-policy-egi-core
+
 #run YAIM
 ln -s /usr/share/java/bcprov-1.58.jar /usr/share/java/bcprov.jar
 if grep -Fxq "creationTime  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP," /etc/glite-ce-cream/populate_creamdb_mysql.sql
