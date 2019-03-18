@@ -1,7 +1,7 @@
 component : "Cream-CE"
 type: compute_element
 version : 1.2
-docker_hub_url : ""
+docker_hub_tag : ""
 primary_config_key: "cream-info"
 site_level_config_version: 1.0
 default_var_prefix: cream_default_var
