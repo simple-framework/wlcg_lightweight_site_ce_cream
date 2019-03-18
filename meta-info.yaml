@@ -93,3 +93,11 @@ docker_run_parameters:
     - "56565:56565"
     - "56554:56554"
     - "40559:40559"
+  tty: true
+  interactive: true
+  detached: true
+  mount:
+    source: /cvmfs
+    target: /cvmfs
+    type: bind
+  command: /bin/bash
