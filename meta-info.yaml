@@ -75,7 +75,8 @@ host_requirements:
       ipv6: false
 
   cvmfs: true
- 
+  host_certificates: true
+  
 docker_run_parameters:
   privileged: true
   hostname: *cream_runtime_var_ce_host
