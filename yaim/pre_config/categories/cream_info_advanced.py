@@ -65,7 +65,7 @@ def append_queue_info(advanced_category, component_section, data):
         for voms_config in voms_configs:
             groups_enable_value.append(voms_config['voms_fqan'])
         advanced_category.add_key_value(groups_enable_key, ' '.join(groups_enable_value))
-
+        advanced_category.add_key_value('queues', " ".join(queues))
     return advanced_category
 
 
