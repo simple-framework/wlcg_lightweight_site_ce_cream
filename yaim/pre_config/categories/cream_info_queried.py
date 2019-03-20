@@ -57,7 +57,7 @@ def get(data, id):
     component_category.add_key_value_query("ce_close_se3_access_point", "$.config.ce_close_se3_access_point") #additional
     component_category.add_key_value_query("ce_close_se3_host", "$.config.ce_close_se3_host") #additional
     component_category.add_key_value_query("se_list", "$.config.se_list") #list
-    component_category.add_key_value_query("se_mount_info_list", "$.config.se_mount_info_list") #additional
+    component_category.add_key_value_query("se_mount_info_list", "$.config.mysql_password") #additional
 
 
     return [site_category, component_category]
