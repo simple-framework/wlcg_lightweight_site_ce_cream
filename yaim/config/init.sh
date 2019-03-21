@@ -1,8 +1,8 @@
 #!/bin/bash
 #copy host certificates
 echo "Copying host certificates..."
-cp /config/host-certificates/hostcert.pem /etc/grid-security/
-cp /config/host-certificates/hostkey.pem /etc/grid-security/
+cp /etc/simple_grid/host_certificates/hostcert.pem /etc/grid-security/
+cp /etc/simple_grid/host_certificates/hostkey.pem /etc/grid-security/
 
 #set permissions
 echo "Setting permissions for host certificates..."
@@ -11,13 +11,13 @@ chmod 644 /etc/grid-security/hostcert.pem
 echo "Done"
 
 # set permissions on yaim directory
-chmod 700 -R /config/*
+chmod 700 -R /etc/simple_grid/config/*
 
 #move configuration files to the correct place
-cp /config/wn-list.conf /root/
-cp /config/users.conf /root/
-cp /config/groups.conf /root/
-cp /config/edgusers.conf /root/
+cp /etc/simple_grid/config/wn-list.conf /root/
+cp /etc/simple_grid/config/users.conf /root/
+cp /etc/simple_grid/config/groups.conf /root/
+cp /etc/simple_grid/config/edgusers.conf /root/
 
 #run YAIM
 ln -s /usr/share/java/bcprov-1.58.jar /usr/share/java/bcprov.jar
@@ -33,7 +33,7 @@ service rsyslog start
 service sshd start
 echo "Starting YAIM..."
 /opt/glite/yaim/bin/yaim -c  \
-        -s /config/cream-info.def \
+        -s /etc/simple_grid/config/cream-info.def \
         -n creamCE \
         -n TORQUE_server \
         -n TORQUE_utils \
