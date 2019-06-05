@@ -74,7 +74,7 @@ host_requirements:
   cvmfs: true
   host_certificates: true
 
-level_2_configuration_config:
+level_2_configurators:
   yaim:
     docker_run_parameters:
       privileged: true
