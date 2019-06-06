@@ -77,24 +77,24 @@ host_requirements:
 level_2_configurators:
   yaim:
     docker_run_parameters:
-      privileged: true
-        hostname: *cream_runtime_var_ce_host
-        ports:
-          - "8443:8443"
-          - "2811:2811"
-          - "20000-21000:20000-21000"
-          - "49152:49152"
-          - "49155:49155"
-          - "9002:9002"
-          - "9001:9001"
-          - "3306:3306"
-          - "2170:2170"
-          - "33333:33333"
-          - "56565:56565"
-          - "56554:56554"
-          - "40559:40559"
-        tty: true
-        interactive: true
-        detached: true
-        command: /bin/bash
-      docker_hub_tag: "maany/lwce-umd4"
+    privileged: true
+      hostname: *cream_runtime_var_ce_host
+      ports:
+        - "8443:8443"
+        - "2811:2811"
+        - "20000-21000:20000-21000"
+        - "49152:49152"
+        - "49155:49155"
+        - "9002:9002"
+        - "9001:9001"
+        - "3306:3306"
+        - "2170:2170"
+        - "33333:33333"
+        - "56565:56565"
+        - "56554:56554"
+        - "40559:40559"
+      tty: true
+      interactive: true
+      detached: true
+      command: /bin/bash
+    docker_hub_tag: "maany/lwce-umd4"
