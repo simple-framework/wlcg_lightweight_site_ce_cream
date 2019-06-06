@@ -77,7 +77,7 @@ host_requirements:
 level_2_configurators:
   yaim:
     docker_run_parameters:
-    privileged: true
+      privileged: true
       hostname: *cream_runtime_var_ce_host
       ports:
         - "8443:8443"
