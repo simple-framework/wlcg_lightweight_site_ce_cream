@@ -13,6 +13,9 @@ echo "Done"
 # set permissions on yaim directory
 chmod 700 -R /etc/simple_grid/config/*
 
+# update /etc/hosts
+# modify /etc/hosts
+echo "$(cat /etc/simple_grid/config/hosts-container.conf) $(cat /etc/hosts)" > /etc/hosts
 #move configuration files to the correct place
 cp /etc/simple_grid/config/wn-list.conf /root/
 cp /etc/simple_grid/config/users.conf /root/

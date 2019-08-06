@@ -6,7 +6,8 @@ from categories import cream_info_static, cream_info_queried, cream_info_advance
     users_advanced, \
     groups_advanced, \
     edgusers_static, \
-    wn_list_advanced
+    wn_list_advanced, \
+    hosts_container_advanced
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -47,6 +48,10 @@ def get_wn_list_file_categories(data):
     advanced = wn_list_advanced.get(data)
     return advanced
 
+def get_hosts_container_file_advanced_category(data, id):
+    advanced = hosts_container_advanced.get(data, id)
+    return advanced
+
 if __name__ == "__main__":
     args = parse_args()
     id = args['execution_id']
@@ -59,6 +64,7 @@ if __name__ == "__main__":
     groups_file = ConfigFile(output_dir + '/groups.conf', data)
     wn_list_file = ConfigFile(output_dir + '/wn-list.conf', data)
     edgusers_file = ConfigFile(output_dir + '/edgusers.conf', data)
+    hosts_container_file = ConfigFile(output_dir + '/hosts-container.conf', data)
 
     cream_info_file.add_categories(get_cream_info_file_categories(data, id))
     cream_info_file.generate_output_file()
@@ -74,3 +80,6 @@ if __name__ == "__main__":
 
     wn_list_file.add_categories(get_wn_list_file_categories(data))
     wn_list_file.generate_output_file()
+
+    hosts_container_file.add_categories(get_hosts_container_file_advanced_category(data, id))
+    hosts_container_file.generate_output_file()
