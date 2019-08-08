@@ -30,7 +30,6 @@ def get(data, id):
     component_category.add_key_value_query("ce_cpu_model", "$.config.ce_cpu_model")
     component_category.add_key_value_query("ce_cpu_speed", "$.config.ce_cpu_speed")
     component_category.add_key_value_query("ce_cpu_vendor", "$.config.ce_cpu_vendor")
-    component_category.add_key_value_query("ce_inboundip", "$.config.ce_inboundip")
     component_category.add_key_value_query("ce_logcpu", "$.config.ce_logcpu")
     component_category.add_key_value_query("ce_minphysmem", "$.config.ce_minphysmem")
     component_category.add_key_value_query("ce_minvirtmem", "$.config.ce_minvirtmem")
@@ -38,7 +37,6 @@ def get(data, id):
     component_category.add_key_value_query("ce_os_arch", "$.config.ce_os_arch")
     component_category.add_key_value_query("ce_os_arch", "$.config.ce_os_arch")
     component_category.add_key_value_query("ce_otherdescr", "$.config.ce_otherdescr")
-    component_category.add_key_value_query("ce_outboundip", "$.config.ce_outboundip") #caps
     component_category.add_key_value_query("ce_physcpu", "$.config.ce_physcpu")
     component_category.add_key_value_query("ce_rubtimeenv", "$.config.ce_physcpu")
     component_category.add_key_value_query("ce_sf00", "$.config.ce_sf00")
@@ -46,7 +44,6 @@ def get(data, id):
     component_category.add_key_value_query("ce_smpsize", "$.config.ce_smpsize")
     component_category.add_key_value_query("batch_server", "$.deploy.node") #ce_host
     component_category.add_key_value_query("batch_log_dir", "$.config.batch_log_dir")
-    component_category.add_key_value_query("blparser_with_updater_notifier", "$.config.blparser_with_updater_notifier")
     component_category.add_key_value_query("blparser_host", "$.deploy.node")
     component_category.add_key_value_query("cemon_host", "$.deploy.node")
     component_category.add_key_value_query("cream_db_user", "$.config.cream_db_user")

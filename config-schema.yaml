@@ -12,7 +12,7 @@ available-from-site-level-config:
     site_support_email: { type: email(), required: false, use_default: false}
     tier: { type: int(), required: false, use_default: false}
     bdii_host: { type: weblink(), required: false, use_default: false}
-    use_argus: { type: bool() , required: false, use_default: true}
+    use_argus: { type: str() , required: false, use_default: true}
     vos: { type: yaml_object(), required: true, use_default: false }
 expected-from-site-level-config:
     mysql_password: { type: password(), required: true, use_default: false}

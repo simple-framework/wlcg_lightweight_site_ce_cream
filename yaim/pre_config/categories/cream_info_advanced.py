@@ -2,12 +2,25 @@ from models.parameter_category import ParameterCategory
 from helpers.generic_helpers import get_voms_config, evaluate, get_component_section
 
 
-
 def globus_tcp_port_range(component_section):
     begin = component_section['config']['globus_tcp_port_range']['begin']
     end = component_section['config']['globus_tcp_port_range']['end']
     return "{begin}, {end}".format(begin=begin, end=end)
 
+
+def ce_inboundip(component_section):
+    ce_inboundip = str(component_section['config']['ce_inboundip'])
+    return "{value}".format(value=ce_inboundip.upper())
+
+
+def ce_outboundip(component_section):
+    ce_outboundip = str(component_section['config']['ce_outboundip'])
+    return "{value}".format(value=ce_outboundip.upper())
+
+
+def blparser_with_updater_notifier(component_section):
+    blparser_with_updater_notifier = str(component_section['config']['blparser_with_updater_notifier'])
+    return "{value}".format(value=blparser_with_updater_notifier.lower())
 
 
 def append_vo_data(advanced_category, component_section, data):
@@ -72,6 +85,9 @@ def append_queue_info(advanced_category, component_section, data):
 def get(data, id):
     component_section = get_component_section(data, id)
     advanced_category = ParameterCategory("cream_info_advanced", data)
+    advanced_category.add_key_value("ce_inboundip", ce_inboundip(component_section))
+    advanced_category.add_key_value("ce_outboundip", ce_outboundip(component_section))
+    advanced_category.add_key_value("blparser_with_updater_notifier", blparser_with_updater_notifier(component_section))
     advanced_category.add_key_value("globus_tcp_port_range", globus_tcp_port_range(component_section))
     advanced_category = append_vo_data(advanced_category,component_section, data)
     advanced_category = append_queue_info(advanced_category, component_section, data)
