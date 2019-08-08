@@ -15,7 +15,23 @@ chmod 700 -R /etc/simple_grid/config/*
 
 # update /etc/hosts
 # modify /etc/hosts
-echo "$(cat /etc/simple_grid/config/hosts-container.conf) $(cat /etc/hosts)" > /etc/hosts
+#!/bin/sh
+
+# Append container hosts file
+hosts_container_file=/etc/simple_grid/config/hosts-container.conf
+host_container_content=`cat $hosts_container_file`
+hosts_file=/etc/hosts
+
+if grep -Fxq "$host_container_content" $hosts_file
+then
+  echo "hosts file has been set, skipping"
+else
+#Remove last line
+echo "$(head -n -1 $hosts_file )" > $hosts_file
+#Add host container ip address
+echo -e "$(cat $hosts_container_file )\n $(cat $hosts_file)" > $hosts_file
+fi
+
 #move configuration files to the correct place
 cp /etc/simple_grid/config/wn-list.conf /root/
 cp /etc/simple_grid/config/users.conf /root/
