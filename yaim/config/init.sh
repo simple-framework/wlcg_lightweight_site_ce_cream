@@ -13,6 +13,11 @@ echo "Done"
 # set permissions on yaim directory
 chmod 700 -R /etc/simple_grid/config/*
 
+# start daemons
+service crond start
+service rsyslog start
+service sshd start
+
 # update /etc/hosts
 # modify /etc/hosts
 #!/bin/sh
@@ -55,14 +60,9 @@ else
   echo "Line Number is ${LINE_NUMBER}"
   sed -ie $LINE_NUMBER's/$/, &/' /etc/glite-ce-cream/populate_creamdb_mysql.sql
 fi
-service rsyslog start
-service sshd start
 echo "Starting YAIM..."
 /opt/glite/yaim/bin/yaim -c  \
         -s /etc/simple_grid/config/cream-info.def \
         -n creamCE \
         -n TORQUE_server \
         -n TORQUE_utils \
-
-# start daemons
-service crond start

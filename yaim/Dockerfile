@@ -63,6 +63,9 @@ RUN mkdir /var/spool/pbs/checkpoint
 # work around an old bug...
 RUN perl -pi.bak -e 's/while.*]/for i in `seq 10`/' /etc/init.d/pbs_server
 
+# generate ssh host keys
+RUN service sshd start
+
 # Mount Volume for configuration parameters
 VOLUME /config
 
