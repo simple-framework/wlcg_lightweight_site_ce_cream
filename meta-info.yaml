@@ -96,4 +96,4 @@ level_2_configurators:
       tty: true
       interactive: true
       detached: true
-    docker_hub_tag: "maany/lwce-umd4"
+    docker_hub_tag: "maany/simple_grid_ce_cream_batch_torque:1.0.0"
